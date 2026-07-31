@@ -42,10 +42,12 @@ let
     let
       bdgs = chunks col-size (filter ({ enable-which, ...}: enable-which) bindings);
       handle-chunk = chunk: ''[${concatMapStringsSep ", " mk-binding chunk}]'';
-      open-command = ''open "${toSentenceCase mode}" "$(${pkgs.uutils-coreutils-noprefix}/bin/cat <<EOF
-[${concatMapStringsSep ", " handle-chunk bdgs}]
-EOF
-)"'';
+      open-command = ''
+        open "${toSentenceCase mode}" "$(${pkgs.uutils-coreutils-noprefix}/bin/cat <<EOF
+        [${concatMapStringsSep ", " handle-chunk bdgs}]
+        EOF
+        )"
+      '';
     in if help-only then ''
         "${mode}")
             if [ "$(${eww}/bin/eww get which--show-help)" = true ]; then
