@@ -30,6 +30,7 @@ in
     ./lang
     ./presets.nix
     ./remote-desktop
+    ./secret-services
     ./sound
     ./steam
     ./tablet
