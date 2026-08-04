@@ -28,5 +28,7 @@
   networking.interfaces.eno0.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
+  programs.captive-browser.interface = "wlp0s20f3";
+
   system.stateVersion = "24.11";
 }

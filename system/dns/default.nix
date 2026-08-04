@@ -47,10 +47,15 @@
       ];
     };
   };
-  
+
   networking = {
     nameservers = [ "127.0.0.1" "::1" ];
     dhcpcd.extraConfig = "nohook resolv.conf";
     networkmanager.dns = "none";
   };
+
+  # Enable a web browser that bypasses secure DNS.  This is useful for networks that have a
+  # captive login page, which is usually implemented as some kind of DNS resolution hack that
+  # doesn't work with encrypted DNS.
+  programs.captive-browser.enable = true;
 }

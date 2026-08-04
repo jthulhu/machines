@@ -302,6 +302,15 @@ in {
           command = "firefox";
         }
         {
+          key = {
+            shift = true;
+            key = "f";
+          };
+          kind = "open";
+          description = "Captive Browser";
+          command = "captive-browser";
+        }
+        {
           key.key = "g";
           kind = "mode";
           description = "games";
@@ -365,7 +374,7 @@ in {
           key.key = "e";
           kind = "open";
           description = "Element";
-          command = "element-desktop";
+          command = "element-desktop --profile 2monad";
         }
         {
           key.key = "m";
