@@ -49,6 +49,7 @@ with lib;
     ./top
     ./torrent
     ./utils
+    ./vpn
     ./wifi
     ./wine
     ./wm
