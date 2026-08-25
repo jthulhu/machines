@@ -38,6 +38,7 @@ with lib;
     ./packages.nix
     ./pass
     ./printing
+    ./qalc
     ./qt
     ./rofi
     ./rustdesk
