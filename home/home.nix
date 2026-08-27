@@ -47,6 +47,7 @@ with lib;
     ./sound
     ./ssh
     ./swappy
+    ./television
     ./tmsu
     ./top
     ./torrent
