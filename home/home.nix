@@ -43,6 +43,7 @@ with lib;
     ./qt
     ./rofi
     ./rustdesk
+    ./search
     ./shell
     ./sound
     ./ssh
