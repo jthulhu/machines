@@ -39,7 +39,7 @@ let
   user-module = {
     home-manager = {
       useGlobalPkgs = true;
-      
+
       users = listToAttrs (map (username: {
         name = username;
         value = {
@@ -53,13 +53,14 @@ let
           };
         };
       }) users);
+      
+      sharedModules = [ nix-index-database.homeModules.default ];
     };
   };
 in
 nixosSystem {
   inherit system;
   modules = [
-    nix-index-database.nixosModules.default
     common
     entrypoint
     hardware

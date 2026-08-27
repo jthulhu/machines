@@ -24,6 +24,7 @@ with lib;
     ./gtk
     ./hledger
     ./images
+    ./index
     ./kodi
     ./krita
     ./languages

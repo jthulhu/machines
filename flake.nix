@@ -64,6 +64,7 @@
     , typst-ts-mode
     , irif-vpn-config
     , irif-vpn-cert
+    , nix-index-database
     , ...
     } @ inputs:
     let
@@ -97,6 +98,7 @@
             # whenpp unlocking password.
             doInstallCheck = false;
           });
+          small-nix-index = nix-index-database.packages.${system}.nix-index-with-small-db;
         })
       ];
     in
