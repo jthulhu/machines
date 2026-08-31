@@ -2,6 +2,8 @@
 , nixpkgs-stable
 , home-manager
 , nix-index-database
+, ragenix
+, pia
 , ...
 } @ inputs: config: { hostname
                     , system ? "x86_64-linux"
@@ -66,6 +68,8 @@ nixosSystem {
     hardware
     custom
     home-manager.nixosModules.home-manager
+    ragenix.nixosModules.default
+    pia.nixosModules.${system}.default
     user-module
   ];
 }

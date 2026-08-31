@@ -23,6 +23,14 @@
       url = "github:jthulhu/isc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pia = {
+      url = "github:fuwn/pia.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Extra Emacs packages
     lean4-mode = {
@@ -58,6 +66,7 @@
     , emacs-overlay
     , nixpkgs-stable
     , isc
+    , ragenix
     , lean4-mode
     , kbd-mode
     , typst-preview
@@ -73,10 +82,11 @@
       inherit (pkgs) writeShellScriptBin;
       inherit (builtins) readFile;
       isgit = writeShellScriptBin "isgit" (readFile ./scripts/isgit);
+      mk-secrets = import ./secrets { inherit pkgs; lib = pkgs.lib; };
       iscPkg = isc.defaultPackage.${system};
       common-overlays = [
         (final: prev: {
-          inherit isgit;
+          inherit isgit mk-secrets;
           isc = iscPkg;
           irif-vpn = {
             config = irif-vpn-config;
@@ -169,6 +179,13 @@
           }
           nixpkgs;
       };
-      packages.${system}.isgit = isgit;
+      packages.${system} = {
+        inherit isgit mk-secrets;
+      };
+      devShell.${system} = pkgs.mkShell {
+        nativeBuildInputs = [
+          mk-secrets
+        ];
+      };
     };
 }
