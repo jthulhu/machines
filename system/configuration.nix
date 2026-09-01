@@ -28,6 +28,7 @@ in
     ./network
     ./nix
     ./lang
+    ./llm
     ./presets.nix
     ./remote-desktop
     ./secrets
@@ -75,6 +76,7 @@ in
         "cuda_nvcc"
         "cuda_cccl"
         "libcublas"
+        "open-webui"
       ];
       nixpkgs.config = {
         allowUnfreePredicate = pkg: elem (getName pkg) my.unfree;

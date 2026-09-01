@@ -30,7 +30,7 @@ with lib;
     ./languages
     ./ldap
     ./light
-    ./llm
+    # ./llm
     ./mailclient
     ./messaging
     ./network
