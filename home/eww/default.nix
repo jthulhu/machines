@@ -372,9 +372,8 @@ in {
         }
         {
           key.key = "e";
-          kind = "open";
-          description = "Element";
-          command = "element-desktop --profile 2monad";
+          kind = "mode";
+          description = "element";
         }
         {
           key.key = "m";
@@ -395,10 +394,31 @@ in {
           command = "thunderbird";
         }
         {
+          key.key = "u";
+          kind = "open";
+          description = "Mail Client";
+          command = "tutanota-dekstop";
+        }
+        {
           key.key = "w";
           kind = "open";
           description = "Whatsapp";
           command = "karere";
+        }
+      ];
+    };
+    element = {
+      col-size = 1;
+      bindings = [
+        {
+          key.key = "e";
+          description = "2monad";
+          command = "element-desktop --profile 2monad";
+        }
+        {
+          key.key = "m";
+          description = "matrix";
+          command = "element-desktop";
         }
       ];
     };
