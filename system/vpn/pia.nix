@@ -2,6 +2,11 @@
 {
   services.pia = {
     enable = true;
-    authUserPassFile = config.age.secrets.pia-credentials.path;
+    credentials.credentialsFile = config.age.secrets.pia-credentials.path;
+    protocol = "wireguard";
+    autoConnect = {
+      enable = true;
+      region = "france";
+    };
   };
 }

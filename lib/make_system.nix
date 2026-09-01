@@ -69,7 +69,7 @@ nixosSystem {
     custom
     home-manager.nixosModules.home-manager
     ragenix.nixosModules.default
-    pia.nixosModules.${system}.default
+    pia.nixosModules.default
     user-module
   ];
 }

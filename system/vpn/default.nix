@@ -11,5 +11,8 @@ in {
       };
     };
   };
+  imports = [
+    ./pia.nix
+  ];
   boot.kernelModules = [ "ovpn" ];
 }

@@ -300,15 +300,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1739700451,
-        "narHash": "sha256-UrUTLVTFmtLbu0/pnt3C7eS/QiMuLztAEnS2PO5ayjg=",
-        "owner": "fuwn",
+        "lastModified": 1768414864,
+        "narHash": "sha256-9b6AfIa1t4pvTHpRpI5l7ElmGQMplOPbu2xZZuabOpk=",
+        "owner": "mrehanabbasi",
         "repo": "pia.nix",
-        "rev": "5185a76c3361c62acd703b289fc34df1295b61c3",
+        "rev": "98aaa1667a6f1b006425f26d3f59115df13d7fa8",
         "type": "github"
       },
       "original": {
-        "owner": "fuwn",
+        "owner": "mrehanabbasi",
         "repo": "pia.nix",
         "type": "github"
       }

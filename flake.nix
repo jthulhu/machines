@@ -28,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pia = {
-      url = "github:fuwn/pia.nix";
+      url = "github:mrehanabbasi/pia.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
