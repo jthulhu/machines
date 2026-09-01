@@ -17,6 +17,31 @@ as source.  Then, you need:
 using which you can access the password store, and decrypt the passwords.  This, in turn, will
 allow you to use the normal SSH key.  You can then stop using the SSH bootstrap key.
 
+** Generating secrets
+Some parts of the configuration require secrets to be available in plain text at some point.
+This is done by encrypting the secrets with =rage=, then require that a suitable key is availble on
+the system.
+
+*** Creating new secrets
+To create a new secret, you must start by editing the =secrets/secrets.nix= file.  You must add a
+key, which will happen to be the name of the file containing to the secret, to the struct.  The
+corresponding value must contain a =publicKeys= list of keys used to encrypt the secret, meaning
+that the corresponding private keys will be able to decipher the secret.  It must also contain a
+=script= field which will be executed to populate the secrets.  It must produce to stdout the
+content of the file that should be accessible.  The script will be run once, then the encrypted
+secrets will be added to the repository.
+
+*** Producing the ciphered secrets
+You have to be in the =secrets/= sub-directory, then run
+#+begin_src sh
+  mk-secrets
+#+end_src
+Then, commit any changes (which will be located in the =secrets/= directory).
+
+*** Storing the keys on the system
+The keys should be store at =/var/lib/rage/<hostname>.priv=.  Make sure they have suitable
+permissions (ie. only =root= can access).
+
 * Encrypting directories
 Encrypting directories is currently done with =fscrypt=.  First, you need to ensure that the
 filesystem supports native encryption.  Currently, =ext4=, =f2fs= and a few others feature native
