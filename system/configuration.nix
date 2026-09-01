@@ -75,6 +75,7 @@ in
         "cuda_cudart"
         "cuda_nvcc"
         "cuda_cccl"
+        "cuda_nvrtc"
         "libcublas"
         "open-webui"
       ];
