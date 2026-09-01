@@ -16,6 +16,7 @@
     tlp = {
       enable = true;
     };
+    ollama.environmentVariables.OLLAMA_CONTEXT_LENGTH = "45000";
   };
 
   preset = "personal";
