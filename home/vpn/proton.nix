@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     proton-vpn-cli
   ];
-  
+
   systemd.user.services = {
     proton-vpn = {
       Unit = {
