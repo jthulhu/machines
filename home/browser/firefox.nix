@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -22,7 +22,10 @@
     # ] ++ [                      # Dictionaries
     #   french-dictionary
     # ];
-    configPath = "./mozilla/firefox";
+    nativeMessagingHosts = with pkgs; [
+      browserpass
+    ];
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     languagePacks = [ "fr" "en-GB" "it" ];
     policies = {
       DisableTelemetry = true;
@@ -41,6 +44,7 @@
           mk = name: {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
             installation_mode = "force_installed";
+            permissions = [ "internal:privateBrowsingAllowed" ];
           }; in {
             "browserpass@maximbaz.com" = mk "browserpass";
             "gdpr@cavi.au.dk" = mk "consent-o-matic";
@@ -68,10 +72,15 @@
         };
     };
     profiles.jthulhu = {
+      isDefault = true;
+      name = "jthulhu";
       settings = {
         "ui.systemUsesDarkTheme" = 1;
       };
-      path = "gma7ov4g.default";
+      search = {
+        privateDefault = "ddg";
+      };
+      path = "jthulhu";
     };
   };
 }
