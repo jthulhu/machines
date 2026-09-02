@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.packages = with pkgs; [
     xdg-utils
@@ -7,6 +7,7 @@
   xdg =
     let
       inherit (builtins) listToAttrs;
+      home = config.home.homeDirectory;
       support = formats: apps: listToAttrs (
         map
           (format: { name = format; value = apps; })
@@ -56,7 +57,7 @@
       mimeApps = {
         enable = true;
         associations.added = {
-          "application/pdf" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.pdf" ];
+          "application/pdf" = [ "org.pwmt.zathura.desktop" ];
         }
         // imageSupport [ "imv.desktop" "sxiv.desktop" "gimp.desktop" ]
         // textSupport [ "emacsclient.desktop" "emacs.desktop" ]
@@ -70,6 +71,14 @@
         // imageSupport [ "imv.desktop" ]
         // textSupport [ "emacsclient.desktop" ]
         // emailSupport [ "thunderbird.desktop" ];
+      };
+      userDirs = {
+        enable = true;
+        createDirectories = true;
+        download = "${home}/tmp";
+        documents = "${home}/em/d";
+        music = "${home}/music";
+        pictures = "${home}/em/pictures";
       };
     };
 }

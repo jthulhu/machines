@@ -4,7 +4,6 @@
     # Usual stuff
     clementine
     unison
-    calibre
     graphviz
     python3Packages.deemix
     lsd

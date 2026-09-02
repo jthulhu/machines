@@ -150,7 +150,6 @@ in
       '';
       sessionVariables = {
         ENCRYPTED_DIRS = concatStringsSep ":" encrypted-directories;
-        CALIBRE_USE_DARK_PALETTE = 1;
         LOCATE_PATH = private-locate-dbs;
         SSH_ASKPASS = "${config.home.homeDirectory}/.local/bin/pass-ssh";
         SSH_ASKPASS_REQUIRE = "force";
