@@ -81,6 +81,21 @@
         privateDefault = "ddg";
       };
       path = "jthulhu";
+      containersForce = true;
+      containers = {
+        em = {
+          icon = "fingerprint";
+          id = 0;
+          color = "yellow";
+          name = "em";
+        };
+        mala = {
+          icon = "pet";
+          id = 1;
+          color = "green";
+          name = "mala";
+        };
+      };
     };
   };
 }
